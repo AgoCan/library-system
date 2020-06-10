@@ -1,6 +1,7 @@
 package routers
 import (
 	"github.com/gin-gonic/gin"
+	"library-system/handlers"
 	"library-system/middleware"
 )
 // SetupRouter 初始化gin入口，路由信息
@@ -15,5 +16,6 @@ func SetupRouter() *gin.Engine{
 	router.GET("/hello", func(c *gin.Context) {
 		c.String(200, "hello world")
 	})
+	router.GET("/user", handlers.UserInfoHandler)
 	return router
 }

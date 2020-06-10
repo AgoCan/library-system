@@ -18,7 +18,7 @@ func InitMysql() (err error) {
 	migrate()
 	// 尝试连接
 	err = DB.DB().Ping()
-	return
+	return err
 }
 // Close 关闭数据库
 func Close()(){
@@ -29,4 +29,6 @@ func Close()(){
 	return
 }
 func migrate(){
+	userInfoMigrate()
+	blogMigrate()
 }
