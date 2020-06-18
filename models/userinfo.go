@@ -9,8 +9,8 @@ type UserInfo struct {
 	Username string `json:"username";gorm:"unique;not null"`
 	Password string	`json:"password"`
 	Avatar string  `json:"avatar";gorm:"default:'/avatar/default.png'"`
-	BlogID uint64
-	Blog Blog
+	BlogID uint64	`json:"blog_id"`
+	Blog Blog `gorm:"foreignkey:BlogID"`
 }
 
 func userInfoMigrate()  {
